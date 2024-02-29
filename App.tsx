@@ -22,16 +22,8 @@ export default function App() {
             headerTitleStyle: { fontWeight: "bold" },
           }}
         >
-          <Stack.Screen
-            name="Profile"
-            component={ProfileScreen}
-            options={{ title: "Account" }}
-          />
-          <Stack.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{ title: "Cyborg Bot" }}
-          />
+          <Stack.Screen name="Profile" component={ProfileScreen} options={{ title: "Account" }} />
+          <Stack.Screen name="Home" component={HomeScreen} options={{ title: "Cyborg Bot" }} />
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>

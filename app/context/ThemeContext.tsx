@@ -26,11 +26,7 @@ export const ThemeProvider: React.FC<{ children: any }> = ({ children }) => {
     },
   };
 
-  return (
-    <ThemeContext.Provider value={defaultTheme}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={defaultTheme}>{children}</ThemeContext.Provider>;
 };
 
 // Custom hook that returns theme object {isDark, colors, setScheme}

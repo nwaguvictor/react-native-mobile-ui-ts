@@ -1,13 +1,8 @@
-import {
-  View,
-  ViewStyle,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  RefreshControl,
-} from "react-native";
-import React from "react";
-import { useTheme } from "../../../context";
+import React from 'react';
+import { View, ViewStyle, SafeAreaView, ScrollView, StyleSheet, RefreshControl } from 'react-native';
+import { widthPercentageToDP as wd } from 'react-native-responsive-screen';
+
+import { useTheme } from '../../../context';
 
 interface LayoutProps {
   children: any;
@@ -16,7 +11,7 @@ interface LayoutProps {
   isScrollable?: boolean;
   onRefresh?: () => void;
   style?: ViewStyle;
-  backgroundColor?: string;
+  bgColor?: string;
 }
 
 export const Layout: React.FC<LayoutProps> = ({
@@ -26,12 +21,13 @@ export const Layout: React.FC<LayoutProps> = ({
   isScrollable = false,
   onRefresh = () => {},
   style,
-  backgroundColor,
+  bgColor,
 }) => {
   const { colors } = useTheme();
   const styles = StyleSheet.create({
     constainer: {
-      backgroundColor: backgroundColor ?? colors.white,
+      // paddingHorizontal: wd(2),
+      backgroundColor: bgColor ?? colors.white,
     },
   });
 
@@ -60,11 +56,7 @@ export const Layout: React.FC<LayoutProps> = ({
   };
   return (
     <>
-      {isSafeArea ? (
-        <SafeAreaView style={{ flex: 1 }}>{renderLayout()}</SafeAreaView>
-      ) : (
-        <View>{renderLayout()}</View>
-      )}
+      {isSafeArea ? <SafeAreaView style={{ flex: 1 }}>{renderLayout()}</SafeAreaView> : <View>{renderLayout()}</View>}
     </>
   );
 };

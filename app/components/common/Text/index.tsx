@@ -15,14 +15,7 @@ interface TextProps {
   numberOfLines?: number;
 }
 
-export const Text: React.FC<TextProps> = ({
-  align,
-  size,
-  color,
-  isTitle,
-  isSubtitle,
-  ...props
-}) => {
+export const Text: React.FC<TextProps> = ({ align, size, color, isTitle, isSubtitle, ...props }) => {
   const { colors } = useTheme();
   let textStyle: TextStyle = {
     color: color ?? colors.black,
